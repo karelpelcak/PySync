@@ -1,6 +1,5 @@
 # PySync
 
-[![CI](https://github.com/karelpelcak/PySync/actions/workflows/ci.yml/badge.svg)](https://github.com/karelpelcak/PySync/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/python-3.12%2B-blue)
 
 **Keep your unfinished work in sync between macOS and Linux through your own server.**
@@ -157,7 +156,7 @@ uv run --extra gui ruff format --check .
 uv run --extra gui pytest -q
 ```
 
-The suite uses temporary directories and loopback networking; it does not require a Raspberry Pi. Desktop tests run Qt offscreen. The latest local verification passed **56 tests on macOS with Python 3.12.15**, including two independent daemons and GUI-driven synchronization. GitHub Actions runs the same suite on Ubuntu and macOS; the badge reports its current result. Without Qt, nine desktop tests skip. See [executed verification](docs/verification.md) for exact checks and platform coverage.
+The suite uses temporary directories and loopback networking; it does not require a Raspberry Pi. Desktop tests run Qt offscreen. The latest local verification passed **56 tests on macOS with Python 3.12.15**, including two independent daemons and GUI-driven synchronization. A fresh checkout and newly built environment passed the same suite. The included [CI workflow](.github/workflows/ci.yml) targets Ubuntu and macOS; remote test execution is not yet verified. Without Qt, nine desktop tests skip. See [executed verification](docs/verification.md) for exact checks and platform coverage.
 
 ## Current limitations
 
