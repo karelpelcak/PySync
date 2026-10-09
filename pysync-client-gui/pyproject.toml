@@ -1,0 +1,17 @@
+[project]
+name = "pysync-client-gui"
+version = "0.1.0"
+description = "Native PySync desktop dashboard for macOS and Linux"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["pysync-client-cli", "pyside6-essentials>=6.8,<7"]
+
+[project.scripts]
+pysync-client-gui = "pysync_client_gui.main:main"
+
+[tool.uv.sources]
+pysync-client-cli = { workspace = true }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

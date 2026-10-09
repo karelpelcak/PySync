@@ -1,0 +1,17 @@
+[project]
+name = "pysync-server"
+version = "0.1.0"
+description = "Central revisioned file synchronization server"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["fastapi>=0.115,<1", "uvicorn>=0.34,<1", "websockets>=14,<18", "sqlalchemy[asyncio]>=2.0,<3", "aiosqlite>=0.20", "aiofiles>=24", "pydantic-settings>=2.7", "pysync-shared"]
+
+[project.scripts]
+pysync-server = "pysync_server.main:main"
+
+[tool.uv.sources]
+pysync-shared = { workspace = true }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

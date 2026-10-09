@@ -1,0 +1,34 @@
+[project]
+name = "pysync"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = ["pysync-server", "pysync-client-cli"]
+
+[tool.uv.workspace]
+members = ["pysync-server", "pysync-client-cli", "pysync-shared", "pysync-client-gui"]
+
+[tool.uv.sources]
+pysync-server = { workspace = true }
+pysync-client-cli = { workspace = true }
+pysync-shared = { workspace = true }
+pysync-client-gui = { workspace = true }
+
+[project.optional-dependencies]
+gui = ["pysync-client-gui"]
+
+[dependency-groups]
+dev = ["pytest>=8.3", "pytest-asyncio>=0.25", "ruff>=0.9"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "UP", "B"]
+
+[tool.ruff.lint.flake8-bugbear]
+extend-immutable-calls = ["fastapi.Depends", "fastapi.Header", "fastapi.Query", "typer.Option"]
